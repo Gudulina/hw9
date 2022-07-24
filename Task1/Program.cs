@@ -5,36 +5,29 @@ M = 1; N = 5 -> "2, 4"
 M = 4; N = 8 -> "4, 6, 8"
 */
 
-int InputNumbers(string text)
-{
-    Console.Write(text);
-    int temp = int.Parse(Console.ReadLine());
-    return temp;
-}
+Console.Write("Введите число M: ");
+int M = int.Parse(Console.ReadLine());
+Console.Write("Введите число N: ");
+int N = int.Parse(Console.ReadLine());
 
-
-int EvenNumbers(int m, int n)
+void EvenNumbers(int m, int n)
 {
-  int temporary = m;
-  if (temporary > n)
+  int temp = m;
+  if (temp < n)
     {
       m = n;
-      n = temporary;
+      n = temp;
     }
-  int count = m;
-  while (count <= n)    
-    if (count % 2 == 0)
-      {
-        Console.Write($"{count}, ");
-        count++);
-      }
-  return;
+  if (temp == 0)
+  {
+    return;
+  }
+  if (temp % 2 == 0)
+  {
+    Console.Write($"{temp}, ");
+  }
+
+  EvenNumbers (m - 1, n);
 }
 
-
-int m = InputNumbers("Введите число M: ");
-int n = InputNumbers("Введите число N: ");
-
-EvenNumbers(m, n);
-
-Console.WriteLine($"{m}, {n}");
+EvenNumbers(M, N);

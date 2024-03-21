@@ -5,9 +5,9 @@ M = 1; N = 5 -> "2, 4"
 M = 4; N = 8 -> "4, 6, 8"
 */
 
-Console.Write("Введите число M: ");
+Console.Write("Введите первое число больше, чем второе: ");
 int M = int.Parse(Console.ReadLine());
-Console.Write("Введите число N: ");
+Console.Write("Введите второе число: ");
 int N = int.Parse(Console.ReadLine());
 
 void EvenNumbers(int m, int n)
@@ -17,17 +17,21 @@ void EvenNumbers(int m, int n)
     {
       m = n;
       n = temp;
+      Console.WriteLine ("Вы ввели второе значение больше первого, поэтому программа поменяла числа местами.");
     }
-  if (temp == 0)
+//  if (temp == 0)
+//  {
+  //  return;
+  //}
+  if (temp %2 != 0)
   {
-    return;
+    temp--;
   }
+  EvenNumbers (m - 2, n);
   if (temp % 2 == 0)
   {
     Console.Write($"{temp}, ");
-  }
-
-  EvenNumbers (m - 1, n);
+  }  
 }
 
 EvenNumbers(M, N);
